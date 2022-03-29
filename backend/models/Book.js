@@ -1,6 +1,6 @@
 const {Schema, model} = require('mongoose'); 
 
-const BooSchema new Schema({
+const BooSchema = new Schema({
     title:{type: String, required: true},
     author:{type: String, required: true},
     isbn:{type: String, required: true},
