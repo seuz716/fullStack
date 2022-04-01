@@ -6,12 +6,14 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon backend/index.js --ignore fronted",
     "start": "cross-env NODE_ENV=production nodemon backend/index.js",
-    "build": "cross-env NODE_ENV=production webpack"
+    "build": "cross-env NODE_ENV=production webpack",
+    "server:dev": "webpack-dev-server "
   },
   "keywords": [],
   "author": "Cesar Andres Abadia",
   "license": "ISC",
   "dependencies": {
+    "bootswatch": "^5.1.3",
     "cors": "^2.8.5",
     "cross-env": "^7.0.3",
     "dotenv": "^16.0.0",

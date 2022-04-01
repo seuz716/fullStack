@@ -1,1 +1,1 @@
-{"version":3,"file":"css/bundle.css","mappings":"AAAA;IACI,gBAAgB;IAChB,YAAY;AAChB,C","sources":["webpack://fullstack/./frontend/styles/styles.css"],"sourcesContent":["body{\r\n    background: blue;\r\n    color: white;\r\n}"],"names":[],"sourceRoot":""}
+{"version":3,"file":"css/bundle.css","mappings":"AAAA;IACI,gBAAgB;IAChB,YAAY;AAChB,C","sources":["webpack://fullstack/./frontend/styles/app.css"],"sourcesContent":["body{\r\n    background: blue;\r\n    color: white;\r\n}"],"names":[],"sourceRoot":""}

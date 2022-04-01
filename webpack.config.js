@@ -1,7 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const MiniCssExtractPlugin =        require('mini-css-extract-Plugin');
-const devMode =process.env.NODE_ENV !== 'production';
+const devMode = process.env.NODE_ENV!=='production';
 
 module.exports = {
     entry: './frontend/app.js',
@@ -9,6 +9,7 @@ module.exports = {
         path:path.join(__dirname, 'backend/public'),
         filename: 'js/bundle.js'
     },
+    mode: 'development',
     module:{
         rules: [
             { 
