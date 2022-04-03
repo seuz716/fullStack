@@ -5,7 +5,8 @@ if (process.env.NODE_ENV !== 'production') {
 const express = require('express');
 const morgan = require('morgan');
 const multer = require('multer');
-const path = require('path')
+const path = require('path');
+const cors = require('cors');
 
 //inicializations
 const app  = express();
@@ -23,6 +24,7 @@ const storage = multer.diskStorage({
     }
 })
 app.use(multer({storage}).single('image'));
+app.use(cors());
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 // Routes

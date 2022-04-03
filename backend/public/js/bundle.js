@@ -2,10 +2,62 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./frontend/styles/app.css":
-/*!*********************************!*\
-  !*** ./frontend/styles/app.css ***!
-  \*********************************/
+/***/ "./frontend/services/BookService.js":
+/*!******************************************!*\
+  !*** ./frontend/services/BookService.js ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+
+class BookService{
+
+    constructor(){
+        this.URI = 'http://localhost:3000/api/books'
+    }
+
+    async getBooks(){
+    const res =   await fetch(this.URI);
+    const books = await res.json();
+    return books;
+    }
+    
+
+    async postBook(book){
+      const res = await fetch(this.URI,{
+          method: 'POST',   
+          body: book
+      });
+      const data = await res.json();
+      return data
+    }
+
+   async deleteBook(bookId){
+    const res = await fetch('${this.URI}/${bookId}',{
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        method: 'DELETE'
+    
+    });
+    
+   const data = await res.json();
+   console.log(data);
+   console.log(bookId);
+   }
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (BookService);
+
+/***/ }),
+
+/***/ "./node_modules/bootswatch/dist/darkly/bootstrap.min.css":
+/*!***************************************************************!*\
+  !*** ./node_modules/bootswatch/dist/darkly/bootstrap.min.css ***!
+  \***************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -41,6 +93,23 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	}
 /******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -60,10 +129,31 @@ var __webpack_exports__ = {};
   !*** ./frontend/app.js ***!
   \*************************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _styles_app_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/app.css */ "./frontend/styles/app.css");
+/* harmony import */ var _services_BookService__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./services/BookService */ "./frontend/services/BookService.js");
+/* harmony import */ var bootswatch_dist_darkly_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! bootswatch/dist/darkly/bootstrap.min.css */ "./node_modules/bootswatch/dist/darkly/bootstrap.min.css");
+ 
+  
 
-/* import 'bootswatch/dist/darkly/bootstrap.min.css'; */
-alert(works);
+
+
+document.getElementById('book-form')
+.addEventListener('submit', e=> {
+    const title =  document.getElementById('title').value;
+    const author = document.getElementById('author').value;
+    const isbn = document.getElementById('isbn').value;
+    const image = document.getElementById('image').files;
+
+    const formData = new FormData();
+    formData.append('image', image[0]);
+    formData.append('title', title);
+    formData.append('author', author);
+    formData.append('isbn', isbn);
+
+    const bookService = new _services_BookService__WEBPACK_IMPORTED_MODULE_0__["default"]()
+    bookService.postBook(formData)
+    e.preventDefault();
+
+})
 
 })();
 
