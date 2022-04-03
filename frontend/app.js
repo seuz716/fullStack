@@ -1,8 +1,11 @@
-import BookService from './services/BookService'; 
 import 'bootswatch/dist/darkly/bootstrap.min.css';  
+import UI from './UI';
 
 
-
+document.addEventListener('DOMContentLoaded', () => {
+    const ui =new UI();
+    ui.renderBooks();
+})
 document.getElementById('book-form')
 .addEventListener('submit', e=> {
     const title =  document.getElementById('title').value;
@@ -16,8 +19,8 @@ document.getElementById('book-form')
     formData.append('author', author);
     formData.append('isbn', isbn);
 
-    const bookService = new BookService()
-    bookService.postBook(formData)
+ const ui = new UI();
+    ui.addANewBook(formData);
     e.preventDefault();
 
 })
