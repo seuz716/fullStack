@@ -212,4 +212,3 @@ dist
 
 .env
 node_modules
-backend/public
