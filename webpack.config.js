@@ -9,6 +9,7 @@ module.exports = {
         path:path.join(__dirname, 'backend/public'),
         filename: 'js/bundle.js'
     },
+    performance: { hints: false },
     mode: 'production',
     module:{
         rules: [
@@ -22,6 +23,7 @@ module.exports = {
             }
         ]
     },
+
     plugins: [
         new HtmlWebpackPlugin ({
             template: './frontend/index.html',
