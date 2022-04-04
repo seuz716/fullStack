@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "server:dev": "webpack-dev-server ",
-    "build": "NODE_ENV=production webpack ",
+    "build": "NODE_ENV=production webpack -p ",
     "dev": "cross-env NODE_ENV=development nodemon backend/index.js --ignore fronted",
+    "postinstall": "npm run build",
     "start": "node backend/index.js"
   },
   
@@ -16,7 +17,6 @@
   "dependencies": {
     "bootswatch": "^5.1.3",
     "cors": "^2.8.5",
-    "cross-env": "^7.0.3",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "fs-extra": "^10.0.1",
@@ -26,7 +26,9 @@
   },
   "devDependencies": {
     "css-loader": "^6.7.1",
+    "cross-env": "^7.0.3",
     "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.6.0",
     "nodemon": "^2.0.15",
     "style-loader": "^3.3.1",
     "timeago.js": "^4.0.2",
