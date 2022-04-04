@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "server:dev": "webpack-dev-server ",
-    
+    "build": "webpack --config webpack.config.js",
     "dev": "cross-env NODE_ENV=development nodemon backend/index.js --ignore fronted",
-    "postinstall": "npm run build",
+    
     "start": "node backend/index.js"
   },
   "keywords": [],
