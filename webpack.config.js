@@ -23,7 +23,6 @@ module.exports = {
             }
         ]
     },
-
     plugins: [
         new HtmlWebpackPlugin ({
             template: './frontend/index.html',
