@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "proxy": "https://pure-dawn-01612.herokuapp.com",
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon backend/index.js --ignore fronted",
-    "build": " NODE_ENV=production node backend/index.js",
-    "start": " NODE_ENV=production webpack",
+    "start": " cross-env NODE_ENV=production node backend/index.js",
+    "build": " cross-env NODE_ENV=production webpack",
     "server:dev": "webpack-dev-server ",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix fronted"
   },
