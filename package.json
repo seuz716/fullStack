@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon backend/index.js --ignore fronted",
-    "build": "cross-env NODE_ENV=production node backend/index.js",
-    "start": "cross-env NODE_ENV=production webpack",
+    "build": " NODE_ENV=production node backend/index.js",
+    "start": " NODE_ENV=production webpack",
     "server:dev": "webpack-dev-server ",
-    "postinstall": "npm run build"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix fronted"
   },
   "keywords": [],
   "author": "Cesar Andres Abadia",
