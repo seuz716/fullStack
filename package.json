@@ -3,12 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "proxy": "https://app-nuevita.herokuapp.com/",
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon backend/index.js --ignore fronted",
-    "start": " cross-env NODE_ENV=production node backend/index.js",
-    "server:dev": "webpack-dev-server ",
-    "heroku-postbuild":"NODE_ENV=production webpack"
+    "start": "cross-env NODE_ENV=production nodemon backend/index.js",
+    "build": "cross-env NODE_ENV=production webpack",
+    "server:dev": "webpack-dev-server "
   },
   "keywords": [],
   "author": "Cesar Andres Abadia",

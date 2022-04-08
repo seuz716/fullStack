@@ -1,5 +1,5 @@
-import itemService from "./services/itemService";
-const itemService = new itemService();
+import ItemService from "./services/itemService";
+const itemService = new ItemService();
 
 import { format } from "timeago.js";
 class UI {
