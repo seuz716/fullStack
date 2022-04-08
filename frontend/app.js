@@ -4,33 +4,33 @@ import UI from './UI';
 
 document.addEventListener('DOMContentLoaded', () => {
     const ui =new UI();
-    ui.renderBooks();
+    ui.renderitems();
 })
-document.getElementById('book-form')
+document.getElementById('item-form')
 .addEventListener('submit', e=> {
     const title =  document.getElementById('title').value;
-    const author = document.getElementById('author').value;
-    const isbn = document.getElementById('isbn').value;
+    const description = document.getElementById('description').value;
+    const price = document.getElementById('price').value;
     const image = document.getElementById('image').files;
 
     const formData = new FormData();
     formData.append('image', image[0]);
     formData.append('title', title);
-    formData.append('author', author);
-    formData.append('isbn', isbn);
+    formData.append('description', description);
+    formData.append('price', price);
 
  const ui = new UI();
-    ui.addANewBook(formData);
-    ui.renderMessage('New Book Added', 'succes', 3000);
+    ui.addANewitem(formData);
+    ui.renderMessage('New item Added', 'succes', 3000);
     e.preventDefault();
 });
 
-document.getElementById('books-cards')
+document.getElementById('items-cards')
     .addEventListener('click',e=>{
         if(e.target.classList.contains('delete')){
             const ui = new UI();
-            ui.deleteBook(e.target.getAttribute('_id'));
-            ui.renderMessage('Book Removed', 'danger', 2000);
+            ui.deleteitem(e.target.getAttribute('_id'));
+            ui.renderMessage('item Removed', 'danger', 2000);
         }
         e.preventDefault;
     });
